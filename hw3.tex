@@ -1,0 +1,60 @@
+
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+\usepackage[margin=1in]{geometry}
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{listings}
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{graphicx}
+\usepackage{lscape}
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\usepackage{grffile}
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{
+\normalfont \normalsize 
+\textsc{Georgia Institute of Technology} \\ [25pt] % Your university, school and/or department name(s)
+%\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge ISyE 6203 :Homework 3 \\ % The assignment title
+%\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{Mahadevan Vaidyanathan} % Your name
+
+\date{\normalsize\today} % Today's date or a custom date
+
+
+\begin{document}
+
+\maketitle
+\section{Problems With Data And Dealing With Them}
+
+\begin{itemize}
+\item First and foremost, almost 80\% of the miles data has zeroes. These are truncated to zero but are somewhere between 0 and 1, since there is generally a real non zero time associated with these zeroes.
+\\The Solution : I created a new data table with all non zero miles data and the "Act Time" data associated with each one of those. Once this table was created, I ran a simple linear model in R with no intercept on this data; with the dependent variable being Miles travelled and the input variable as "Act Time". Once this model was ready, I used this model on all rows with zero miles and found the best estimate for the miles travelled. 
+\end{itemize}
+\begin{lstlisting}[language=R]
+
+\end{lstlisting}
+
+\end{document}
+
+
+
+
+
+
+
