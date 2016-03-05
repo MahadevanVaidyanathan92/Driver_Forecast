@@ -32,20 +32,10 @@ for(i in 3:dim(data1)[1]){
 
 
 #linearmile<- lm ( mile ~  0 + timemile  )
-#plot(linearmile)
-#newtime<-as.data.frame(timemile = data1$Act.Time)
-#newmiles<-as.data.frame(data1$Miles)
+#The coefficient of the above regression
 newmiles <- newtime*43.9470
 data1$Miles<-newmiles
 
-#data1<-data
-#for(i in 3:dim(data1)[1])
-#  {
-#  if(data1$Miles[i]==0)
-#    {
-#    data1$Miles = predict.lm (linearmile, data1$Act.Time);
-#  }
-#}
 
 
 j=1
@@ -85,8 +75,9 @@ for(i in 1:dim(data1)[1]){
 }
 data2<-NULL
 data2<-cbind(data2.Event,data2.ActTime,data2.TotPlan,data2.DriverName,data2.Date,data2.Unit,data2.StopType,data2.Packages,data2.Miles)
-#data2<-cbind(data1$Event,data1$Act.Time,data1$Tot.Plan,data1$Driver.Name,data1$Date,data1$Unit..,data1$Stop.Type,data1$Packages)
-#tree<- rpart(formula = data1$Act.Time ~ as.factor(data1$Event) +as.factor(data1$Driver.Name) + as.factor(data1$Unit..) +as.factor(data1$Stop.Type) + data1$Miles)
 tree<- rpart::rpart(formula = data2.ActTime ~ as.factor(data2.Event) +as.factor(data2.DriverName) + as.factor(data2.Unit) +as.factor(data2.StopType) + data2.Miles)
 fancyRpartPlot(tree)
+#Code testing.
+#data2<-cbind(data1$Event,data1$Act.Time,data1$Tot.Plan,data1$Driver.Name,data1$Date,data1$Unit..,data1$Stop.Type,data1$Packages)
+#tree<- rpart(formula = data1$Act.Time ~ as.factor(data1$Event) +as.factor(data1$Driver.Name) + as.factor(data1$Unit..) +as.factor(data1$Stop.Type) + data1$Miles)
 #plot(tree)
